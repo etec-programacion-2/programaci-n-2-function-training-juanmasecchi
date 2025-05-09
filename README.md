@@ -1,9 +1,9 @@
 # 2025-function-training
 
 ## 👤 Identificación del Alumno
-- **Nombre:** [Tu nombre]
-- **Apellido:** [Tu apellido]
-- **Curso:** [Tu curso]
+- **Nombre:** [juan martin]
+- **Apellido:** [rodriguez secchi]
+- **Curso:** [4I]
 
 ## 🤖 Consideraciones Éticas sobre el Uso de IA
 Este ejercicio está diseñado para desarrollar tus habilidades de programación. Por favor, ten en cuenta las siguientes consideraciones:
