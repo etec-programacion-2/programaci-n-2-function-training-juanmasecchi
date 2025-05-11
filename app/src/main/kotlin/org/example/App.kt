@@ -25,13 +25,13 @@ fun main() {
 
     println("\n=== Etapa 3: Funciones con Listas ===")
     // TODO: Implementar función calcularPromedioCurso
-    val notas = listOf(2.0, 8.0, 6.5, 9.0, 7.5)
+    val notas = listOf(2.0, 8.0, 5.5, 10.0, 7.5)
     val promedioCurso = calcularPromedioCurso(notas)
     println("El promedio del curso es: $promedioCurso")
 
     // TODO: Implementar función obtenerAlumnosAprobados
     val nombres = listOf("Ana", "Juan", "María", "Pedro", "Lucía")
-    val notasAlumnos = listOf(3.0, 9.0, 8.0, 6.0, 9.0)
+    val notasAlumnos = listOf(3.0, 10.0, 8.0, 6.0, 9.0)
     val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos)
     println("Alumnos aprobados: $aprobados")
 
@@ -43,7 +43,7 @@ fun main() {
     println(boletin)
 
     // TODO: Implementar funciones de análisis de rendimiento
-    println("Estadísticas del curso:")
+    println("Estadísticas del curso: ")
     println("Promedio: ${calcularPromedioCurso(notas)}")
     println("Nota más alta: ${obtenerNotaMasAlta(notas)}")
     println("Nota más baja: ${obtenerNotaMasBaja(notas)}")
@@ -99,20 +99,29 @@ fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<St
 // Etapa 4
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
     // Implementar aquí
-    return ""
+    val materia_notas = materias.zip(notas) 
+    return "$nombre se saco en: $materia_notas" 
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
-}
 
+    return notas.maxOrNull() ?: 0.0 // el .maxOrNull sirve para obtener el valor más alto de una lista de números
+                                    // el ?: sirve para devolver un valor por defecto si el valor anterior es null
+}                                  
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    return notas.minOrNull() ?: 0.0
 }
 
 fun contarAprobados(notas: List<Double>): Int {
     // Implementar aquí
-    return 0
+    var contador = 0
+    for (nota in notas) {
+        if (nota >= 6) {
+            contador++  // el ++ sirve para incrementar el valor de la variable
+        }
+    }
+    return contador
 }
+
