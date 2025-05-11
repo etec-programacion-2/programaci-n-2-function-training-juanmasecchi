@@ -6,7 +6,7 @@ package org.example
 fun main() {
     println("=== Etapa 1: Funciones Básicas ===")
     // TODO: Implementar función calcularPromedio
-    val promedio1 = calcularPromedio(7.5, 8.0)
+    val promedio1 = calcularPromedio(9.5, 2.0)
     println("El promedio es: $promedio1")
 
     // TODO: Implementar función esAprobado
@@ -55,13 +55,17 @@ fun main() {
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
     // Implementar aquí
-    return 0.0
+    return ((nota1+nota2)/2)
 }
 
 fun esAprobado(nota: Double): Boolean {
-    // Implementar aquí
-    return false
+    if (nota >= 6.0) {
+        return true
+    } else {
+        return false
+    }
 }
+
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
