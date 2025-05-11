@@ -25,13 +25,13 @@ fun main() {
 
     println("\n=== Etapa 3: Funciones con Listas ===")
     // TODO: Implementar función calcularPromedioCurso
-    val notas = listOf(7.0, 8.0, 6.5, 9.0, 7.5)
+    val notas = listOf(2.0, 8.0, 6.5, 9.0, 7.5)
     val promedioCurso = calcularPromedioCurso(notas)
     println("El promedio del curso es: $promedioCurso")
 
     // TODO: Implementar función obtenerAlumnosAprobados
     val nombres = listOf("Ana", "Juan", "María", "Pedro", "Lucía")
-    val notasAlumnos = listOf(7.0, 5.0, 8.0, 6.0, 9.0)
+    val notasAlumnos = listOf(3.0, 9.0, 8.0, 6.0, 9.0)
     val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos)
     println("Alumnos aprobados: $aprobados")
 
@@ -85,12 +85,15 @@ fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    return (notas.average()) //el .average sirve para calcular el promedio de una lista de números
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
     // Implementar aquí
-    return emptyList()
+
+    return nombres.zip(notas).mapNotNull { (nombre, nota) ->  // el .zip sirve para unir dos listas
+        if (nota >= 6.0) nombre else null                    // el .mapNotNull sirve para filtrar el nombre si se cumple el if sino devuelve null
+    }                                                    
 }
 
 // Etapa 4
