@@ -6,7 +6,7 @@ package org.example
 fun main() {
     println("=== Etapa 1: Funciones Básicas ===")
     // TODO: Implementar función calcularPromedio
-    val promedio1 = calcularPromedio(7.5, 8.0)
+    val promedio1 = calcularPromedio(9.5, 2.0)
     println("El promedio es: $promedio1")
 
     // TODO: Implementar función esAprobado
@@ -20,18 +20,18 @@ fun main() {
     println("El promedio de las tres notas es: $promedioTresNotas")
 
     // TODO: Implementar función obtenerEstadoAlumno
-    val estado = obtenerEstadoAlumno("Juan", "Pérez", 7.5)
+    val estado = obtenerEstadoAlumno("Juan", "Pérez", 5.0)
     println(estado)
 
     println("\n=== Etapa 3: Funciones con Listas ===")
     // TODO: Implementar función calcularPromedioCurso
-    val notas = listOf(7.0, 8.0, 6.5, 9.0, 7.5)
+    val notas = listOf(2.0, 8.0, 5.5, 10.0, 7.5)
     val promedioCurso = calcularPromedioCurso(notas)
     println("El promedio del curso es: $promedioCurso")
 
     // TODO: Implementar función obtenerAlumnosAprobados
     val nombres = listOf("Ana", "Juan", "María", "Pedro", "Lucía")
-    val notasAlumnos = listOf(7.0, 5.0, 8.0, 6.0, 9.0)
+    val notasAlumnos = listOf(3.0, 10.0, 8.0, 6.0, 9.0)
     val aprobados = obtenerAlumnosAprobados(nombres, notasAlumnos)
     println("Alumnos aprobados: $aprobados")
 
@@ -43,7 +43,7 @@ fun main() {
     println(boletin)
 
     // TODO: Implementar funciones de análisis de rendimiento
-    println("Estadísticas del curso:")
+    println("Estadísticas del curso: ")
     println("Promedio: ${calcularPromedioCurso(notas)}")
     println("Nota más alta: ${obtenerNotaMasAlta(notas)}")
     println("Nota más baja: ${obtenerNotaMasBaja(notas)}")
@@ -55,53 +55,73 @@ fun main() {
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
     // Implementar aquí
-    return 0.0
+    return ((nota1+nota2)/2)
 }
 
 fun esAprobado(nota: Double): Boolean {
-    // Implementar aquí
-    return false
+    if (nota >= 6.0) {
+        return true
+    } else {
+        return false
+    }
 }
+
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     // Implementar aquí
-    return 0.0
+    return ((nota1 + nota2 + nota3)/3)
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     // Implementar aquí
-    return ""
+    if (nota >= 6.0) {
+        return "El alumno $nombre $apellido está aprobado"
+    } else {
+        return "El alumno $nombre $apellido está desaprobado"
+    }
 }
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    return (notas.average()) //el .average sirve para calcular el promedio de una lista de números
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
     // Implementar aquí
-    return emptyList()
+
+    return nombres.zip(notas).mapNotNull { (nombre, nota) ->  // el .zip sirve para unir dos listas
+        if (nota >= 6.0) nombre else null                    // el .mapNotNull sirve para filtrar el nombre si se cumple el if sino devuelve null
+    }                                                    
 }
 
 // Etapa 4
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
     // Implementar aquí
-    return ""
+    val materia_notas = materias.zip(notas) 
+    return "$nombre se saco en: $materia_notas" 
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
-}
 
+    return notas.maxOrNull() ?: 0.0 // el .maxOrNull sirve para obtener el valor más alto de una lista de números
+                                    // el ?: sirve para devolver un valor por defecto si el valor anterior es null
+}                                  
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    return notas.minOrNull() ?: 0.0
 }
 
 fun contarAprobados(notas: List<Double>): Int {
     // Implementar aquí
-    return 0
+    var contador = 0
+    for (nota in notas) {
+        if (nota >= 6) {
+            contador++  // el ++ sirve para incrementar el valor de la variable
+        }
+    }
+    return contador
 }
+
