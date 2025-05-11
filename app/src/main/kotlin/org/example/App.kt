@@ -20,7 +20,7 @@ fun main() {
     println("El promedio de las tres notas es: $promedioTresNotas")
 
     // TODO: Implementar función obtenerEstadoAlumno
-    val estado = obtenerEstadoAlumno("Juan", "Pérez", 7.5)
+    val estado = obtenerEstadoAlumno("Juan", "Pérez", 5.0)
     println(estado)
 
     println("\n=== Etapa 3: Funciones con Listas ===")
@@ -70,12 +70,16 @@ fun esAprobado(nota: Double): Boolean {
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     // Implementar aquí
-    return 0.0
+    return ((nota1 + nota2 + nota3)/3)
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     // Implementar aquí
-    return ""
+    if (nota >= 6.0) {
+        return "El alumno $nombre $apellido está aprobado"
+    } else {
+        return "El alumno $nombre $apellido está desaprobado"
+    }
 }
 
 // Etapa 3
